@@ -12,3 +12,42 @@ Example 2:
 
 Input: "cbbd"
 Output: "bb"
+
+
+Solution 1. Dynamic programming
+
+p[i][j]
+
+if p[i+1][j-1] is true, true
+else, false
+
+base case
+for p[i][i], true
+
+for p[i][i+1], if s[i] == s[i+1], true else false
+
+
+class Solution(object):
+    def longestPalindrome(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        maxPalindrome = ""
+        isPalindrome = [[False]* len(s) for i in range(len(s))]
+        for i in range(len(s)):
+            isPalindrome[i][i] = True
+            maxPalindrome = s[i]
+            
+        for sl in range(2, len(s)+1):
+            for i in range(len(s) - sl + 1):
+                j = i + sl - 1
+                if sl == 2 and s[i] == s[j]:
+                    isPalindrome[i][j] = True
+                    maxPalindrome = s[i:i+sl]
+                elif s[i] == s[j] and isPalindrome[i+1][j-1]:
+                    isPalindrome[i][j] = True
+                    maxPalindrome = s[i:i+sl]
+        
+        return maxPalindrome
+        
