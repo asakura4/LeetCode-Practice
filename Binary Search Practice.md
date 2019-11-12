@@ -184,15 +184,15 @@ Output: -1.
 		    if target == A[mid]:
 			return mid
 
-		    if A[start] <= A[mid]:
-			if A[start] <= target <= A[mid]:
+		    if A[start] <= A[mid]:  			 # left hand side is sorted array
+			if A[start] <= target <= A[mid]:	 # target in sorted array
 			    end = mid
-			else:
+			else:					 # target in rotated sorted array
 			    start = mid
-		    else:
-			if A[mid] <= target <= A[end]:
+		    else:		    			 # right hand side is sorted array
+			if A[mid] <= target <= A[end]:		 # target in sorted array
 			    start = mid
-			else:
+			else:					 # target in rotated sorted array
 			    end = mid
 
 		if A[start] == target:
