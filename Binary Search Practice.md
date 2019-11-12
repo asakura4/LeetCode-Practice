@@ -2,8 +2,11 @@
 
 ## Critical Point
 a. start + 1 < end 
+
 b. start + (end - start)/2
+
 c. discuss in 3 case: ==, <, >
+
 d. after break condition nums[start], nums[end] compare with target
 
 
