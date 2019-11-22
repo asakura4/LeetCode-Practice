@@ -1,4 +1,4 @@
-# LeetCode-Practice
+# Binary Search Practice
 
 ## Critical Point
 a. start + 1 < end 
